@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js"
+        integrity="sha512-V0j9LhrK9IMNdFYZqh+IqU4cjo7wdxyHNyH+L0td4HryBuZ7Oq6QxP2/CWr6TituX31+gv5PnolvERuTbz8UNA=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="chart"></div>
+        <script>
+            function getData() {
+                var arr = [];
+                for (let i = 0; i < 10; i++)
+                    arr.push(Array(10).fill().map(() => Math.random()))
+                return arr;
+            }
+            console.log(getData())
+            var data = getData();
+            Plotly.newPlot('chart', [{ //multiple traces
+                z: data,
+                type: 'surface'
+            }]);
+        </script>
+    </div>
+</body>
+
+</html>
